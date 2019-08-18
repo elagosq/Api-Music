@@ -1,16 +1,20 @@
 import React from 'react';
 import Header from './header';
-import Nav from './nav';
-import Main from '../hooks/fetchArtist';
+import Navigation from './Navigation';
+import ListItem from './ListItem';
+import Nav from './Nav';
+
 import './styles.css';
 
-const App = () => (
-    <div className="container">
-        <Header />
-        <Nav />
-        <Main />
-    </div>
-);
-
+const App = () => {
+    const { item, selectedItem } = Nav();
+    return (
+        <div className="container">
+            <Header />
+            <Navigation selectedItem={selectedItem} />
+            <ListItem item={item} />
+        </div>
+    );
+}
 export default App;
 
